@@ -38,8 +38,8 @@ public class Generics2 {
 		List<? extends Chewable> list1 = new ArrayList<Meat>(); 
 		List<Chewable> list2  = new ArrayList<Chewable>();
 		
-		// Compiler Error : 
-		List<? super Chewable> list3 = new ArrayList<Meat>();
+		// Compiler Error : Type mismatch: cannot convert from ArrayList<Meat> to List<? super Chewable>  
+		// List<? super Chewable> list3 = new ArrayList<Meat>();
 		
 		Meat meat = new Meat();
 		// Compile Error : The method add(capture#3-of ? extends Generics2.Chewable) in the type 
