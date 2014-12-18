@@ -8,7 +8,13 @@ public class Generics2 {
 	public static void main(String[] args) {
 		test1();
 		test2();
-		//test3();
+		/*
+		Compile Error : The method test3(List<? extends Number>) in the type Generics2 is not applicable for the arguments (ArrayList<Object>)
+		test3(new ArrayList<>());
+		*/
+		
+		test3(new ArrayList<Integer>());
+		test4(new ArrayList<>()); // Aha this allowed like '=' operator.
 	}
 
 	private static void test1(){
@@ -38,8 +44,9 @@ public class Generics2 {
 		List<? extends Chewable> list1 = new ArrayList<Meat>(); 
 		List<Chewable> list2  = new ArrayList<Chewable>();
 		
+		List<? super Chewable> list3 = null;
 		// Compiler Error : Type mismatch: cannot convert from ArrayList<Meat> to List<? super Chewable>  
-		// List<? super Chewable> list3 = new ArrayList<Meat>();
+		// list3 = new ArrayList<Meat>();
 		
 		Meat meat = new Meat();
 		// Compile Error : The method add(capture#3-of ? extends Generics2.Chewable) in the type 
@@ -47,5 +54,27 @@ public class Generics2 {
 		// list1.add(meat); 
 		list2.add(meat); 
 	}	
+	
+	private static double test3(List<? extends Number> list){
+        double sum = 0;
+        
+        /* Compiler Error  : The method add(capture#3-of ? extends Number) in the type List<capture#3-of ? extends Number> 
+           					is not applicable for the arguments (Integer)
+          
+           Note that with upper bounded list, we are not allowed to add any object to the list except null. 
+         */
+        // list.add(new Integer(3));
+        list.add(null); // This allowed but doesn't make sense in real example.
+        
+        for(Number n : list){
+            sum += n.doubleValue();
+        }
+        return sum;
+    }
 
+	private static double test4(List<? super Number> list){
+		list.add(new Integer('2')); // Allowed
+		list.add(new Double(2));  // Allowed
+		return 1.0;
+	}
 }
