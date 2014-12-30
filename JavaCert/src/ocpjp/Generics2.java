@@ -40,7 +40,7 @@ public class Generics2 {
 		4. When <? extends X> as declaration type, X and any sub type of X can be used in instantiation.
 	 */
 	
-	private static void test2(){
+	private static void test2(){ // For Chewable and Meat see Generic1.java
 		List<? extends Chewable> list1 = new ArrayList<Meat>(); 
 		List<Chewable> list2  = new ArrayList<Chewable>();
 		
