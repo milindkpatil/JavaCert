@@ -1,15 +1,15 @@
 package ocpjp;
 
-public class ConstructorBasics {
+public class Constructor {
 	
 	
-	public ConstructorBasics() { 	}
+	public Constructor() { 	}
 	
-	protected ConstructorBasics(int i) { 	}
+	protected Constructor(int i) { 	}
 	
-	ConstructorBasics(short s) { 	}
+	Constructor(short s) { 	}
 	
-	private ConstructorBasics(float f) { 	}
+	private Constructor(float f) { 	}
 	
 	//final ConstructorBasics(long l) { 	}
 	
@@ -32,12 +32,12 @@ public class ConstructorBasics {
 	 */
 
 	public static void main(String[] args) {
-		ConstructorBasics cb = new ConstructorBasics(5f);
+		Constructor cb = new Constructor(5f);
 	}
 }
 
 
-class SubCBS extends ConstructorBasics {
+class SubCBS extends Constructor {
 	public SubCBS(){
 		try {
 			// super();  Calling super() should be the first statement in the constructor not even try is allowed. **

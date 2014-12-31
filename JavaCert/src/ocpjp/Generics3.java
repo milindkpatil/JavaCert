@@ -26,6 +26,8 @@ public class Generics3 {
 		list.add(new Integer(3));
 		list.add(new Integer(3));
 		list.add(new Integer(3));
+		list.add(new Long(3));
+		list.add(new Float(3));
 		list.add(new Double(4));
 		
 		// Compile Error: Type mismatch: cannot convert from ArrayList<Integer> to List<Number>

@@ -1,6 +1,6 @@
 package ocpjp;
 
-public class AutoBoxBasics {
+public class AutoBox {
 	
 	public static void main(String[] args) {
 		// Allowed autoboxing

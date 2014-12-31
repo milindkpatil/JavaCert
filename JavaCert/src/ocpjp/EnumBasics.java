@@ -7,10 +7,24 @@ import java.util.Map;
 public class EnumBasics {
 
 	enum WeekDays {
-		MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY, SUNDAY
+		MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY, SUNDAY // ***; is optional if there is no code.
+	}
+	
+	enum SemiDemo implements Runnable{ // extends Thread{  Enum can not extends any class. It can implement interface. Enum can not be abstract.
+		SEMI_IS_NOT_OPTIONAL(7); // *** ; is NOT optional here.
+		SemiDemo(int i) { 	}
+
+		@Override
+		public void run() {		}
 	}
 
 	public static void main(String[] args) {
+		//Can not declare enum inside any method.
+		// enum CoffeeSize{ SMALL, NORMAL, BIG ; } 
+		
+		SemiDemo k = SemiDemo.SEMI_IS_NOT_OPTIONAL;
+		System.out.println(k); // Output SEMI_IS_NOT_OPTIONAL
+		
 		int[] arrayvalues = { 12, 34, 56, 23, 5, 13, 78 };
 
 		Map<WeekDays, Integer> daymap = new HashMap<>();
@@ -26,8 +40,8 @@ public class EnumBasics {
 		 **/
 		// enumap.put(null, 100);
 		System.out.println("Frequency EnumMap: " + enumap);
+		// Output : Frequency EnumMap: {MONDAY=12, TUESDAY=34, WEDNESDAY=56, THURSDAY=23, FRIDAY=5, SATURDAY=13, SUNDAY=78}
 	}
-	
 	
 	public void callMethod() {
 		/*enum JavaExams {
@@ -35,7 +49,6 @@ public class EnumBasics {
 		}*/// Not allowed compile time error. See explanation.
 	}
 }
-// Output : Frequency EnumMap: {MONDAY=12, TUESDAY=34, WEDNESDAY=56, THURSDAY=23, FRIDAY=5, SATURDAY=13, SUNDAY=78}
 
 /*
 An enum declaration is a special kind of class declaration:

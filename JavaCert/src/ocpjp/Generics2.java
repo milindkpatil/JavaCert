@@ -3,6 +3,7 @@ package ocpjp;
 import java.util.ArrayList;
 import java.util.List;
 
+@SuppressWarnings("unused")
 public class Generics2 {
 
 	public static void main(String[] args) {
@@ -39,6 +40,7 @@ public class Generics2 {
 		3. When <?> is used as declaration type, any type can be used in instantiation.
 		4. When <? extends X> as declaration type, X and any sub type of X can be used in instantiation.
 	 */
+	
 	
 	private static void test2(){ // For Chewable and Meat see Generic1.java
 		List<? extends Chewable> list1 = new ArrayList<Meat>(); 
